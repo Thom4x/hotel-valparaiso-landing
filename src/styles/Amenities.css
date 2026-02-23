@@ -1,0 +1,112 @@
+.amenities {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background-color: var(--color-background);
+}
+
+.amenities-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto var(--spacing-xl);
+}
+
+.section-subtitle {
+    margin-top: 30px;
+    font-family: var(--font-body);
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.section-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: var(--spacing-md);
+}
+
+.section-text {
+    color: var(--color-secondary);
+    font-size: 1.1rem;
+}
+
+.amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.amenity-card {
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.amenity-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Efecto hover en imágenes (Zoom in lento) */
+.amenity-img-wrapper {
+    overflow: hidden;
+    aspect-ratio: 4/3;
+}
+
+.amenity-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.amenity-card:hover .amenity-img-wrapper img {
+    transform: scale(1.08);
+    /* Zoom sutil premium */
+}
+
+.amenity-content {
+    padding: var(--spacing-md);
+    text-align: center;
+}
+
+.amenity-content h4 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.amenity-content p {
+    color: var(--color-secondary);
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.7;
+}
+
+.amenity-link {
+    color: var(--color-accent);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s;
+}
+
+.amenity-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 1px;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+}
+
+.amenity-link:hover::after {
+    width: 100%;
+}

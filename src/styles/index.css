@@ -1,0 +1,130 @@
+/* ==========================================================================
+   Variables Globales - Hotel Valparaíso (Premium Lujo)
+   ========================================================================== */
+:root {
+  /* Paleta de Colores (Sobria y Elegante) */
+  --color-primary: #1A1A1A; /* Negro obsidiana */
+  --color-secondary: #2C2C2C; /* Gris oscuro */
+  --color-accent: #D4AF37; /* Dorado metálico */
+  --color-accent-light: #F3E5AB; /* Champagne */
+  --color-text-light: #F8F8F8;
+  --color-text-dark: #333333;
+  --color-background: #FAFAFA;
+
+  /* Tipografía */
+  --font-heading: 'Playfair Display', serif; /* Elegancia para títulos */
+  --font-body: 'Lato', sans-serif; /* Legibilidad moderna */
+
+  /* Espaciado */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 8rem;
+
+  /* Transiciones & Animaciones */
+  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-primary);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-smooth);
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* ==========================================================================
+   Utilidades (Utility Classes)
+   ========================================================================== */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Botón Premium */
+.btn-gold {
+  background-color: transparent;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  padding: 1rem 2.5rem;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-accent);
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-gold:hover {
+  color: var(--color-primary);
+}
+
+.btn-gold:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Animaciones Generales */
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
